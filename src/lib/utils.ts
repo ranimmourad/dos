@@ -1,12 +1,11 @@
 import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+  return clsx(inputs);
 }
 
 export function formatPrice(price: number): string {
-  return `${price.toFixed(0)} TND`;
+  return (price / 1000).toFixed(3);
 }
 
 export function slugify(text: string): string {
