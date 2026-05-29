@@ -3,7 +3,6 @@ import { prisma } from "@/lib/db";
 
 export async function GET() {
   const categories = await prisma.category.findMany({
-    where: { products: { some: { published: true } } },
     include: { _count: { select: { products: true } } },
     orderBy: { name: "asc" },
   });
